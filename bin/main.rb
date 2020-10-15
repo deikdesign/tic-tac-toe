@@ -74,6 +74,14 @@ while play_again == "Y"
         # CHANGE THE BOARD WITH THE MOVE (GONNA BE A METHOD)
         # SHOW THE BOARD (GONNA BE A METHOD)
 
+        puts '+---+---+---+'
+        puts '| 1 | 2 | 3 |'
+        puts '+---+---+---+'
+        puts '| 4 | 5 | 6 |'
+        puts '+---+---+---+'
+        puts '| 7 | 8 | 9 |'
+        puts '+---+---+---+'
+
         plays += 1
 
         # IF THERE IS ANY WINNER IT'S GONNA SHOW THE WINER INFORMATION:
