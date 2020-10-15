@@ -60,20 +60,44 @@ loop do
     if player_move < 1 and player_move > 9
         puts "Please make your move again (1 ... 9): "
     end
-
+break if (1..9).include?(player_move)
 end
 
 puts "Your move was #{player_move}"
 
 # CHANGE THE BOARD WITH THE MOVE
+
+
 # CHANGE TURN
+puts "Please make your move from (1...9)?"
+puts "Your move was #{player_move}"
+
 # SHOW UPDATED BOARD
 
+
 # RUN THE NEXT TURN
+
 # FINISH WHEN WE HAVE A WINNER OR A TIE
-
+winner = false
+if winner == true
+    puts "Congratulations, you are the winner"
+elsif winner == false
+    puts "You lose. Please try again."
+end
 # ASK IF THE USER WANT TO PLAY AGAIN
+print "Do you want to play again? Y/N"
+loop do
+    play_again = gets.chomp.upcase
+    if play_again != "Y" || play_again != "O" 
+        puts "Do you want to play again?"
+    end
+break if play_again == "Y" || play_again == "O"
+end
 
+puts "Your move was #{player_move}"
+if user_input == "N"
+    puts "Please, try again"
+end
 
 
 
