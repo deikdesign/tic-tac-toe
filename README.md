@@ -12,16 +12,13 @@ Ruby
 3. Go to the root directory.
 4. Write "ruby main.rb" in terminal.
 
-## Live Demo
 
-[Live Demo Link]()
 
 ## Authors
-👤 ** **
+👤 ** Sergio Obolevich **
 
-- Github: [@githubhandle]()
-- Twitter: [@twitterhandle]()
-- Linkedin: [linkedin]()
+- Github: [@githubhandle](https://github.com/chubaquelo)
+- Twitter: [@twitterhandle](https://twitter.com/SergioObolevich)
 
 👤 **Deyan Todorov**
 
