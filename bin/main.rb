@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 play_again = "Y"
 while play_again == "Y"    
     player_1, player_2 = "", ""
