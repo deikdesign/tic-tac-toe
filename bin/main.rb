@@ -1,4 +1,6 @@
-require './lib/logic.rb'
+# frozen_string_literal: true
+
+require '../lib/logic.rb'
 
 play_again = 'Y'
 while play_again == 'Y'
@@ -48,8 +50,8 @@ while play_again == 'Y'
 
     break if %w[1 2].include?(turn.to_s)
   end
-  
-  # SHOW THE BOARD 
+
+  # SHOW THE BOARD
   board.show_board
 
   while board.check_if_win? == false
@@ -66,7 +68,7 @@ while play_again == 'Y'
     loop do
       player_move = gets.chomp.to_i
 
-      if player_move < 1 or player_move > 9
+      if (player_move < 1) || (player_move > 9)
         board.show_board
         puts 'Wrong. You have to put a number 1 to 9.'
         puts 'Please make your move again (1 ... 9): '
@@ -75,7 +77,7 @@ while play_again == 'Y'
         puts 'The number you selected was already taken.'
         puts 'Try again with another number (1..9):'
       end
-      break if (1..9).include?(player_move) and !board.check_if_move_done?(player_move)
+      break if (1..9).include?(player_move) && !board.check_if_move_done?(player_move)
     end
 
     puts "Your move was #{player_move}"
@@ -86,7 +88,7 @@ while play_again == 'Y'
     elsif turn == 2
       board.make_move(p_two.team, player_move)
     end
-    
+
     # SHOW THE BOARD
 
     board.show_board
@@ -95,15 +97,13 @@ while play_again == 'Y'
 
     # IF THERE IS ANY WINNER IT'S GONNA SHOW THE WINER INFORMATION:
     # FINISH WHEN WE HAVE A WINNER OR A TIE
-    if board.check_if_win?
-      if turn == 1
-        puts "Congratulations, you are the winner #{p_one.name}"
-        break
-      elsif turn == 2
-        puts "Congratulations, you are the winner #{p_two.name}"
-        break
-      end
-    elsif plays == 9 and board.check_if_win? == false
+    if board.check_if_win? && turn == 1
+      puts "Congratulations, you are the winner #{p_one.name}"
+      break
+    elsif turn == 2 && board.check_if_win?
+      puts "Congratulations, you are the winner #{p_two.name}"
+      break
+    elsif (plays == 9) && (board.check_if_win? == false)
       puts "It's a tie!! Nobody wins until now.. but.."
       break
     end
