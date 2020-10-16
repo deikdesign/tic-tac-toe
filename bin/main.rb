@@ -48,7 +48,7 @@ while play_again == 'Y'
 
     break if %w[1 2].include?(turn.to_s)
   end
-
+  
   # SHOW THE BOARD 
   board.show_board
 
