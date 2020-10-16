@@ -12,18 +12,18 @@ Ruby
 
 Required: be sure to have ruby and git installed on your computer.
 
-1. Open Terminal and go to the folder you desire to clone the game in.
+1. Open the Terminal and go to the folder you desire to clone the game in.
 2. Clone this project by Writing "git clone https://github.com/deikdesign/tic-tac-toe"
-3. Go inside the "tic-tac-toe" folder you've just cloned. (cd tic-tac-toe")
-4. Write "ruby main.rb" in terminal to execute the game.
+3. Go inside the "tic-tac-toe" folder you've just cloned. (cd tic-tac-toe)
+4. Write "ruby main.rb" in the terminal to execute the game.
 
 ## Game Instructions
 
 Tic Tac Toe is a game for 2 players.
 Each player can choose either to be "X" or "O" for each game.
 
-The game has a 9 places board and 9 turns. One turn per player to move.
-To win the game, you have to be able to get and entire row completed with your choosen team ("X" or "O")
+The game has 9 places board and 9 turns. One turn per player to move.
+To win the game, you have to be able to get an entire row completed with your chosen team ("X" or "O")
 
 To win you can complete a row: horizontally, vertically or diagonal.
 
@@ -33,7 +33,7 @@ Win examples for "X":
 
 ## Authors
 
-👤 ** Sergio Obolevich **
+👤 **Sergio Obolevich**
 
 - Github: [@githubhandle](https://github.com/chubaquelo)
 - Twitter: [@twitterhandle](https://twitter.com/SergioObolevich)
@@ -45,7 +45,7 @@ Win examples for "X":
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 Feel free to check the issues page.
 
 ## Show your support
