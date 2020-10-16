@@ -1,3 +1,5 @@
+require './lib/logic.rb'
+
 play_again = 'Y'
 while play_again == 'Y'
   player_one = ''
@@ -7,6 +9,7 @@ while play_again == 'Y'
   turn = 0
   player_move = ''
   plays = 0
+  board = Board.new
 
   while player_one.empty?
     puts 'Please write the name of the PLAYER 1: '
@@ -30,12 +33,15 @@ while play_again == 'Y'
     team_two = 'O'
   end
 
+  p_one = Player.new(player_one, team_one)
+  p_two = Player.new(player_two, team_two)
+
   # WE DISPLAY THE NAMES AND TEAMS OF EACH PLAYER
-  # ASK WHO WILL BEGIN FIRST
+  #  AND ASK WHO WILL BEGIN FIRST
 
   loop do
-    puts "1 - Player 1: #{player_one} (#{team_one})"
-    puts "2 - Player 2: #{player_two} (#{team_two})"
+    puts "1 - Player 1: #{p_one.name} (#{p_one.team})"
+    puts "2 - Player 2: #{p_two.name} (#{p_two.team})"
     puts 'Who wants to be first? (put 1 or 2): '
 
     turn = gets.chomp.to_i
@@ -43,15 +49,16 @@ while play_again == 'Y'
     break if %w[1 2].include?(turn.to_s)
   end
 
-  winner = false
-  # SHOW THE BOARD (GONNA BE A METHOD)
-  while winner == false
+  # SHOW THE BOARD 
+  board.show_board
+
+  while board.check_if_win? == false
 
     # SHOW FIRST TURN INFORMATION, AFTER SELECTION
     if turn == 1
-      puts "Ok great! So next move is for #{player_one} (#{team_one})"
+      puts "Ok great! So next move is for #{p_one.name} (#{p_one.team})"
     elsif turn == 2
-      puts "Ok great! So next move is for #{player_two} (#{team_two})"
+      puts "Ok great! So next move is for #{p_two.name} (#{p_two.team})"
     end
 
     # BEGIN FIRST TURN (TURN IS GONNA BE A LOOP)
@@ -60,34 +67,44 @@ while play_again == 'Y'
       player_move = gets.chomp.to_i
 
       if player_move < 1 or player_move > 9
+        board.show_board
         puts 'Wrong. You have to put a number 1 to 9.'
         puts 'Please make your move again (1 ... 9): '
+      elsif board.check_if_move_done?(player_move)
+        board.show_board
+        puts 'The number you selected was already taken.'
+        puts 'Try again with another number (1..9):'
       end
-      break if (1..9).include?(player_move)
+      break if (1..9).include?(player_move) and !board.check_if_move_done?(player_move)
     end
 
     puts "Your move was #{player_move}"
 
-    # CHANGE THE BOARD WITH THE MOVE (GONNA BE A METHOD)
-    # SHOW THE BOARD (GONNA BE A METHOD)
+    # CHANGE THE BOARD WITH THE MOVE
+    if turn == 1
+      board.make_move(p_one.team, player_move)
+    elsif turn == 2
+      board.make_move(p_two.team, player_move)
+    end
+    
+    # SHOW THE BOARD
 
-    puts '+---+---+---+'
-    puts '| 1 | 2 | 3 |'
-    puts '+---+---+---+'
-    puts '| 4 | 5 | 6 |'
-    puts '+---+---+---+'
-    puts '| 7 | 8 | 9 |'
-    puts '+---+---+---+'
+    board.show_board
 
     plays += 1
 
     # IF THERE IS ANY WINNER IT'S GONNA SHOW THE WINER INFORMATION:
     # FINISH WHEN WE HAVE A WINNER OR A TIE
-    if winner == true
-      puts 'Congratulations, you are the winner'
-      break
-    elsif plays == 9 and winner == false
-      puts "It's a tie!"
+    if board.check_if_win?
+      if turn == 1
+        puts "Congratulations, you are the winner #{p_one.name}"
+        break
+      elsif turn == 2
+        puts "Congratulations, you are the winner #{p_two.name}"
+        break
+      end
+    elsif plays == 9 and board.check_if_win? == false
+      puts "It's a tie!! Nobody wins until now.. but.."
       break
     end
 
