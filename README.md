@@ -10,7 +10,7 @@ Ruby
 1. Open Terminal.
 2.  Write git clone https://github.com/deikdesign/tic-tac-toe
 3. Go to the root directory.
-4. Write "ruby main.rb" in terminal.
+4. Write "ruby ./bin/main.rb" in terminal.
 
 
 
