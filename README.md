@@ -10,6 +10,12 @@ Ruby
 
 ## How to run
 
+1. Open Terminal.
+2.  Write git clone https://github.com/deikdesign/tic-tac-toe
+3. Go to the root directory.
+4. Write "ruby ./bin/main.rb" in terminal.
+
+
 Required: be sure to have ruby and git installed on your computer.
 
 1. Open the Terminal and go to the folder you desire to clone the game in.
