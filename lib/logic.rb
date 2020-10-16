@@ -44,12 +44,12 @@ class Board
   end
 
   def show_board
-    puts '+---+---+---+'
-    puts '| ' + @board[0].to_s + ' | ' + @board[1].to_s + ' | ' + @board[2].to_s + ' |'
-    puts '+---+---+---+'
-    puts '| ' + @board[3].to_s + ' | ' + @board[4].to_s + ' | ' + @board[5].to_s + ' |'
-    puts '+---+---+---+'
-    puts '| ' + @board[6].to_s + ' | ' + @board[7].to_s + ' | ' + @board[8].to_s + ' |'
-    puts '+---+---+---+'
+    puts '+---+---+---+----+---+---+----+'
+    puts "|    #{@board[0].to_s}    |    #{@board[1].to_s}    |    #{@board[2].to_s}    |"
+    puts '+---+---+---+----+---+---+----+'
+    puts "|    #{@board[3].to_s}    |    #{@board[4].to_s}    |    #{@board[5].to_s}    |"
+    puts '+---+---+---+----+---+---+----+'
+    puts "|    #{@board[6].to_s}    |    #{@board[7].to_s}    |    #{@board[8].to_s}    |"
+    puts '+---+---+---+----+---+---+----+'
   end
 end
