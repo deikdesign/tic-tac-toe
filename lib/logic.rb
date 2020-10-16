@@ -7,8 +7,8 @@ class Player
   end
 end
 
-# Saving Board information and game actions methods
-class Board
+# Saving Game information and game actions methods
+class Game
   attr_reader :board, :moves_done
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]

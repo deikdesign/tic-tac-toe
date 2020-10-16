@@ -1,15 +1,19 @@
 require '../lib/logic.rb'
 
 play_again = 'Y'
+new_game = nil
+
 while play_again == 'Y'
-  player_one = ''
-  player_two = ''
+  if new_game.nil?
+    player_one = ''
+    player_two = ''
+  end
   team_one = ''
   team_two = ''
   turn = 0
   player_move = ''
   plays = 0
-  board = Board.new
+  game = Game.new
 
   while player_one.empty?
     puts 'Please write the name of the PLAYER 1: '
@@ -17,7 +21,7 @@ while play_again == 'Y'
   end
 
   loop do
-    puts 'Please select your Team (X or O): '
+    puts "Please #{player_one} select your Team (X or O): "
     team_one = gets.chomp.upcase
     break if %w[O X].include?(team_one)
   end
@@ -50,9 +54,9 @@ while play_again == 'Y'
   end
 
   # SHOW THE BOARD
-  board.show_board
+  game.show_board
 
-  while board.check_if_win? == false
+  while game.check_if_win? == false
 
     # SHOW FIRST TURN INFORMATION, AFTER SELECTION
     if turn == 1
@@ -67,41 +71,41 @@ while play_again == 'Y'
       player_move = gets.chomp.to_i
 
       if (player_move < 1) || (player_move > 9)
-        board.show_board
+        game.show_board
         puts 'Wrong. You have to put a number 1 to 9.'
         puts 'Please make your move again (1 ... 9): '
-      elsif board.check_if_move_done?(player_move)
-        board.show_board
+      elsif game.check_if_move_done?(player_move)
+        game.show_board
         puts 'The number you selected was already taken.'
         puts 'Try again with another number (1..9):'
       end
-      break if (1..9).include?(player_move) && !board.check_if_move_done?(player_move)
+      break if (1..9).include?(player_move) && !game.check_if_move_done?(player_move)
     end
 
     puts "Your move was #{player_move}"
 
     # CHANGE THE BOARD WITH THE MOVE
     if turn == 1
-      board.make_move(p_one.team, player_move)
+      game.make_move(p_one.team, player_move)
     elsif turn == 2
-      board.make_move(p_two.team, player_move)
+      game.make_move(p_two.team, player_move)
     end
 
     # SHOW THE BOARD
 
-    board.show_board
+    game.show_board
 
     plays += 1
 
     # IF THERE IS ANY WINNER IT'S GONNA SHOW THE WINER INFORMATION:
     # FINISH WHEN WE HAVE A WINNER OR A TIE
-    if board.check_if_win? && turn == 1
+    if game.check_if_win? && turn == 1
       puts "Congratulations, you are the winner #{p_one.name}"
       break
-    elsif turn == 2 && board.check_if_win?
+    elsif turn == 2 && game.check_if_win?
       puts "Congratulations, you are the winner #{p_two.name}"
       break
-    elsif (plays == 9) && (board.check_if_win? == false)
+    elsif (plays == 9) && (game.check_if_win? == false)
       puts "It's a tie!! Nobody wins until now.. but.."
       break
     end
@@ -125,7 +129,8 @@ while play_again == 'Y'
   end
 
   if play_again == 'Y'
-  # START THE GAME AGAIN
+    # START THE GAME AGAIN
+    new_game = false
   elsif play_again == 'N'
     puts 'Thanks for playing! Bye!'
     break
