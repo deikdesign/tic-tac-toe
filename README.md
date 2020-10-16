@@ -17,6 +17,9 @@ Required: be sure to have ruby and git installed on your computer.
 3. Go inside the "tic-tac-toe" folder you've just cloned. (cd tic-tac-toe)
 4. Write "ruby ./bin/main.rb" in the terminal to execute the game.
 
+Or you can use our online demo on Repl.it:
+https://repl.it/@chubaquelo/tic-tac-toe
+
 ## Game Instructions
 
 Tic Tac Toe is a game for 2 players.
