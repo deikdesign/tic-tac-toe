@@ -1,4 +1,6 @@
-require '../lib/logic.rb'
+#!/usr/bin/env ruby
+
+require './lib/logic'
 
 play_again = 'Y'
 new_game = nil

@@ -64,8 +64,9 @@ And you will receive the results for our rspec tests like this:
 
 👤 **Kinglsey Ibeh**
 
-- Github: [@deikdesign](https://github.com/deikdesign)
-- Twitter: [@deikdesign](https://twitter.com/deikdesign)
+- Github: [@githubhandle](https://github.com/Kingobaino1)
+- Twitter: [@twitterhandle](https://twitter.com/ibehkingso)
+- Linkedin: [linkedin](https://www.linkedin.com/in/ibeh-kingsley-obinna-568596177)
 
 ## 🤝 Contributing
 

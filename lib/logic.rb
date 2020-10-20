@@ -27,6 +27,7 @@ class Game
       @moves_done.push(move)
       true
     end
+
     false
   end
 
