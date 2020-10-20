@@ -16,10 +16,12 @@ class Game
   end
 
   def make_move(team, move)
-    if (team == 'X') && @moves_done.none?(move)
+    if !move.is_a?(Integer) || !(1..9).include?(move)
+      return false
+    elsif (team == 'X') && @moves_done.none?(move)
       @board[move - 1] = 'X'
       @moves_done.push(move)
-      true
+      return true
     elsif (team == 'O') && @moves_done.none?(move)
       @board[move - 1] = 'O'
       @moves_done.push(move)
