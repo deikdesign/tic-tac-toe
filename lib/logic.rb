@@ -12,7 +12,7 @@ class Game
   attr_reader :board, :moves_done
   def initialize
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @moves_done = []
+    @moves_done = [3]
   end
 
   def make_move(team, move)
